@@ -30,7 +30,7 @@ class EndScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 25),
                 ),
                 onPressed: () {
-                  print('Reset pressed');
+                  Navigator.pop(context);
                 },
               ),
             )),

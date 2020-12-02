@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:les5routesquizappexample/Library.dart';
 
+import 'EndScreen.dart';
+
 QuestionBank bank = QuestionBank();
 
 class HomePage extends StatefulWidget {
@@ -16,18 +18,20 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (bank.isFinished()) {
         //this is the solution for showing the dialog
-        showDialog(
-          context: context,
-          barrierDismissible: true,
-          child: AlertDialog(
-            title: Center(
-                child: Text('Finished, you reached the end of the quiz!')),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        );
-
+        //showDialog(
+        //  context: context,
+        //  barrierDismissible: true,
+        //  child: AlertDialog(
+        //    title: Center(
+        //        child: Text('Finished, you reached the end of the quiz!')),
+        //    shape: RoundedRectangleBorder(
+        //      borderRadius: BorderRadius.circular(10),
+        //    ),
+        //  ),
+        //);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return EndScreen();
+        }));
         bank.reset();
         scoreKeeper = [];
       } else {
