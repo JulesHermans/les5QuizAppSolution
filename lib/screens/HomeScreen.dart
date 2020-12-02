@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:les5routesquizappexample/Library.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 import 'EndScreen.dart';
 
 QuestionBank bank = QuestionBank();
+AudioCache player = AudioCache();
 
 class HomePage extends StatefulWidget {
   @override
@@ -29,6 +31,9 @@ class _HomePageState extends State<HomePage> {
         //    ),
         //  ),
         //);
+        player.play('DrumRoll.mp3');
+        //het duurt even voor de drumRoll geladen is de eerste keren in de emulator,
+        // je kan meerdere malen proberen, indien je de eerste keer geen geluid hoort
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return EndScreen();
         }));
