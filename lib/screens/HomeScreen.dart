@@ -1,8 +1,10 @@
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:les5routesquizappexample/Library.dart';
 import 'EndScreen.dart';
 
 QuestionBank bank = QuestionBank();
+AudioCache player = AudioCache();
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     bool correctAnswer = bank.getCurrentAnswer();
     setState(() {
       if (bank.isFinished()) {
+        /*
         //this is the solution for showing the dialog
         //showDialog(
         //  context: context,
@@ -27,7 +30,16 @@ class _HomePageState extends State<HomePage> {
         //      borderRadius: BorderRadius.circular(10),
         //    ),
         //  ),
-        //);
+        //);*/
+        player.play('DrumRoll.mp3');
+        //het duurt even voor de drumRoll geladen is de eerste keren in de emulator,
+        // je kan meerdere malen proberen, indien je de eerste keer geen geluid hoort
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return EndScreen();
+          }),
+        );
         bank.reset();
         scoreKeeper = [];
       } else {
