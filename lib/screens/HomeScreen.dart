@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:les5routesquizappexample/Library.dart';
-import 'package:audioplayers/audio_cache.dart';
-
 import 'EndScreen.dart';
 
 QuestionBank bank = QuestionBank();
-AudioCache player = AudioCache();
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -31,12 +27,6 @@ class _HomePageState extends State<HomePage> {
         //    ),
         //  ),
         //);
-        player.play('DrumRoll.mp3');
-        //het duurt even voor de drumRoll geladen is de eerste keren in de emulator,
-        // je kan meerdere malen proberen, indien je de eerste keer geen geluid hoort
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return EndScreen();
-        }));
         bank.reset();
         scoreKeeper = [];
       } else {
@@ -75,35 +65,40 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: FlatButton(
-                    color: Colors.green,
-                    textColor: Colors.white,
-                    child: Text(
-                      'TRUE',
-                      style: TextStyle(
-                        fontSize: 22,
+                child: GestureDetector(
+                  onTap: (){
+                    _checkAnswer(true);
+                  },
+                  child: Container(
+                      color: Colors.green,
+                      child: Text(
+                        'TRUE',
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      _checkAnswer(true);
-                    }),
+            ),
+                ),
               ),
             ),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: FlatButton(
-                  color: Colors.red,
-                  textColor: Colors.white,
-                  child: Text(
-                    'FALSE',
-                    style: TextStyle(
-                      fontSize: 22,
-                    ),
-                  ),
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: (){
                     _checkAnswer(false);
                   },
+                  child: Container(
+                    color: Colors.red,
+                    child: Text(
+                      'FALSE',
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),

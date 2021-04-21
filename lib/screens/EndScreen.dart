@@ -1,8 +1,5 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 
-import 'package:image_picker/image_picker.dart';
 
 class EndScreen extends StatefulWidget {
   @override
@@ -10,16 +7,6 @@ class EndScreen extends StatefulWidget {
 }
 
 class _EndScreenState extends State<EndScreen> {
-  final ImagePicker picker = ImagePicker();
-
-  File image;
-
-  void getAndAddImage() async {
-    PickedFile pickedFile = await picker.getImage(source: ImageSource.camera);
-    setState(() {
-      image = File(pickedFile.path);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,44 +20,26 @@ class _EndScreenState extends State<EndScreen> {
             Expanded(
                 flex: 6,
                 child: Center(
-                  child: image != null
-                      ? Image.file(image)
-                      : Text(
+                  child: Text(
                           'Congratulations on completing the quiz! You can reset it below.',
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white, fontSize: 30),
                         ),
                 )),
-            image != null
-                ? Container()
-                : Expanded(
-                    child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: FlatButton(
-                      color: Colors.deepOrange,
-                      textColor: Colors.white,
-                      child: Text(
-                        'TAKE victory picture',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                      onPressed: () {
-                        getAndAddImage();
-                      },
-                    ),
-                  )),
             Expanded(
                 child: Padding(
               padding: EdgeInsets.all(10.0),
-              child: FlatButton(
-                color: Colors.deepOrange,
-                textColor: Colors.white,
-                child: Text(
-                  'RESET Quiz',
-                  style: TextStyle(fontSize: 25),
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
+              child: GestureDetector(
+                onTap: (){
+                  print("reset pressed!");
                 },
+                child: Container(
+                  color: Colors.deepOrange,
+                  child: Text(
+                    'RESET Quiz',
+                    style: TextStyle(fontSize: 25, color:Colors.white),
+                  ),
+                ),
               ),
             )),
           ],
