@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 class EndScreen extends StatefulWidget {
   @override
   _EndScreenState createState() => _EndScreenState();
 }
 
 class _EndScreenState extends State<EndScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,23 +19,23 @@ class _EndScreenState extends State<EndScreen> {
                 flex: 6,
                 child: Center(
                   child: Text(
-                          'Congratulations on completing the quiz! You can reset it below.',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white, fontSize: 30),
-                        ),
+                    'Congratulations on completing the quiz! You can reset it below.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white, fontSize: 30),
+                  ),
                 )),
             Expanded(
                 child: Padding(
               padding: EdgeInsets.all(10.0),
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   print("reset pressed!");
                 },
                 child: Container(
                   color: Colors.deepOrange,
                   child: Text(
                     'RESET Quiz',
-                    style: TextStyle(fontSize: 25, color:Colors.white),
+                    style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                 ),
               ),

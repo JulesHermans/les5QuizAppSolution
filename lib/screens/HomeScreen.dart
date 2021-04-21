@@ -3,6 +3,7 @@ import 'package:les5routesquizappexample/Library.dart';
 import 'EndScreen.dart';
 
 QuestionBank bank = QuestionBank();
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -66,19 +67,19 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     _checkAnswer(true);
                   },
                   child: Container(
-                      color: Colors.green,
-                      child: Text(
-                        'TRUE',
-                        style: TextStyle(
-                          fontSize: 22,
-                          color: Colors.white,
-                        ),
+                    color: Colors.green,
+                    child: Text(
+                      'TRUE',
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.white,
                       ),
-            ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     _checkAnswer(false);
                   },
                   child: Container(
