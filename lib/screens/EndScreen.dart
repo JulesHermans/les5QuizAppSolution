@@ -33,9 +33,11 @@ class _EndScreenState extends State<EndScreen> {
                 },
                 child: Container(
                   color: Colors.deepOrange,
-                  child: Text(
-                    'RESET Quiz',
-                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  child: Center(
+                    child: Text(
+                      'RESET Quiz',
+                      style: TextStyle(fontSize: 25, color: Colors.white),
+                    ),
                   ),
                 ),
               ),

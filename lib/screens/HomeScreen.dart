@@ -72,11 +72,14 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Container(
                     color: Colors.green,
-                    child: Text(
-                      'TRUE',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
+                    child: Center(
+                      child: Text(
+                        'TRUE',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -92,11 +95,14 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Container(
                     color: Colors.red,
-                    child: Text(
-                      'FALSE',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
+                    child: Center(
+                      child: Text(
+                        'FALSE',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
